@@ -1,0 +1,15 @@
+#include <Arduino.h>
+const int potPin = 32;  
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(potPin, INPUT);
+}
+
+void loop() {
+  int potValue = analogRead(potPin);
+  float angle = map(potValue, 0, 4095, 0, 360);
+  Serial.print("Ángulo: ");
+  Serial.println(angle);
+  delay(100);
+}
